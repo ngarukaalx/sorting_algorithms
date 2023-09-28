@@ -92,7 +92,10 @@ void sort(int *array, int left, int right)
 		sort(array, left, middle);
 		sort(array, middle + 1, right);
 
-		merge(array, left, middle, right);
+		if (middle - left <= right - middle)
+			merge(array, left, middle, right);
+		else
+			merge(array, left, middle - 1, right);
 	}
 }
 
